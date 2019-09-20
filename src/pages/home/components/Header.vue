@@ -26,7 +26,7 @@ export default {
       /*设置为 flex 布局,值为 1 时 自动撑开*/
       flex: 1
       height: .64rem
-      /*字体居中显示*/
+      /*设置行高 行高由上间距,文本高度,下间距组成,上间距的距离与下间距的距离是相等的,所以文字默认在这一行中是垂直居中的.*/
       line-height: .64rem
       margin-top: .12rem
       background: #fff
