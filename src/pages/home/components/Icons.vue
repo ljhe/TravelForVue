@@ -64,6 +64,7 @@ export default {
     height: 0
     padding-bottom: 50%
     .icon
+      /*生成相对定位的元素,相当于其正常位置进行定位*/
       position: relative
       overflow: hidden
       float: left
@@ -77,6 +78,7 @@ export default {
         left: 0
         right: 0
         bottom: .44rem
+        /*限定了盒子模型的总面积*/
         box-sizing: border-box
         padding: .1rem
         .icon-img-content
