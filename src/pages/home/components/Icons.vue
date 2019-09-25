@@ -1,9 +1,9 @@
 <template>
     <div class="icons">
-        <swiper>
-            <swiper-slide v-for="(page, index) in pages" :key="index">
+        <swiper :options="swiperOption">
+            <swiper-slide v-for="(page, index) of pages" :key="index">
                 <div class="icon"
-                     v-for="item in page"
+                     v-for="item of page"
                      :key="item.id"
                 >
                     <div class="icon-img">
@@ -19,47 +19,21 @@
 <script>
 export default {
   name: 'Icons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/inn.png',
-        desc: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/haiwai.png',
-        desc: '海外酒店'
-      }, {
-        id: '0003',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/kezhan.png',
-        desc: '民俗'
-      }, {
-        id: '0004',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/bargainflight.png',
-        desc: '低价机票'
-      }, {
-        id: '0005',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/group.png',
-        desc: '特惠酒店'
-      }, {
-        id: '0006',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/tuan.png',
-        desc: '旅游团购'
-      }, {
-        id: '0007',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/freeTravel.png',
-        desc: '自由行'
-      }, {
-        id: '0008',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/aroundtravel.png',
-        desc: '周边短途'
-      }]
+      swiperOption: {
+        // 设置默认不滚动
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = {}
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

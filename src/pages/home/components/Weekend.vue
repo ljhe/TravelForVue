@@ -22,20 +22,8 @@
 <script>
 export default {
   name: 'Weekend',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/p/p58/201302/28/00c6ce7ab5a6331693835fbb.jpg_750x500_88a41ad4.jpg',
-        title: '八达岭长城',
-        desc: '八达岭长城史称天下九塞之一，是万里长城的精华，在明长城中，独具代表性。八达岭长城是万里长城向游人开得'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/p/p58/201302/28/00c6ce7ab5a6331693835fbb.jpg_750x500_88a41ad4.jpg',
-        title: '八达岭长城',
-        desc: '八达岭长城史称天下九塞之一，是万里长城的精华，在明长城中，独具代表性。八达岭长城是万里长城向游人开得'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
