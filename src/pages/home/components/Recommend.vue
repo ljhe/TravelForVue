@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="title">热门推荐</div>
-      <ul v-for="item in recommendList" :key="item.id">
+      <ul v-for="item of list" :key="item.id">
           <li class="item border-bottom">
             <img class="item-img" :src="item.imgUrl"/>
           <div class="item-info">
@@ -17,25 +17,8 @@
 <script>
 export default {
   name: 'Recommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/p/tts2/1803/94/ee19b679ce2d6e02.jpg_336x320_06d64507.jpg',
-        title: '金秋畅游',
-        desc: '北京出发-跟团游 金秋畅游☞北京+承德+坝上草原+金山岭长城4日游|推荐亲子草原越野+烤羊篝火'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/p/tts2/1803/94/ee19b679ce2d6e02.jpg_336x320_06d64507.jpg',
-        title: '金秋畅游',
-        desc: '北京出发-跟团游 金秋畅游☞北京+承德+坝上草原+金山岭长城4日游|推荐亲子草原越野+烤羊篝火'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/p/tts2/1803/94/ee19b679ce2d6e02.jpg_336x320_06d64507.jpg',
-        title: '金秋畅游',
-        desc: '北京出发-跟团游 金秋畅游☞北京+承德+坝上草原+金山岭长城4日游|推荐亲子草原越野+烤羊篝火'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -43,7 +26,6 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/css/mixins.styl'
   .title
-    margin-top: .2rem
     line-height: .8rem
     background: #eee
     text-indent: .2rem

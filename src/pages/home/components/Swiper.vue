@@ -1,7 +1,8 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
-            <swiper-slide v-for="item of swiperList" :key="item.id">
+        <!--初始 list 为 [], 当有值的时候,会导致轮播默认显示最后一张,设置 v-if 来解决这个问题-->
+        <swiper :options="swiperOption" v-if="showSwiper">
+            <swiper-slide v-for="item of list" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl" />
             </swiper-slide>
             <div class="swiper-pagination"  slot="pagination"></div>
@@ -12,19 +13,21 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/478f98476b86f665c958d01f39e14ace.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/a685001bbf5e77a203ff8815e953efbe.jpg_945x288_52b6ec01.jpg'
-      }]
+        loop: true,
+        autoplay: true
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }
