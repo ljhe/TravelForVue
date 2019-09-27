@@ -6,9 +6,11 @@
         <div class="header-input">
             <span class="iconfont">&#xeb9c;</span>输入城市/景点/游玩主题
         </div>
-        <div class="header-right">
-            北京<span class="iconfont arrow-icon">&#xe633;</span>
-        </div>
+        <router-link to="/city">
+            <div class="header-right">
+                北京<span class="iconfont arrow-icon">&#xe633;</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -28,7 +30,7 @@ export default {
   /*1rem = html 的 font-size = 50px;(该例中 html 的 font-size 设置为 50px )*/
   .header
     display: flex
-    line-height: .86rem
+    line-height: $headerHeight
     background: $bgColor
     color: #fff
     .header-left
@@ -53,6 +55,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: #fff
       .arrow-icon
         font-size: .24rem
         margin-left: .04rem
