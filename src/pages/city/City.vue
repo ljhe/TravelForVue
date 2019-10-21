@@ -2,7 +2,8 @@
     <div>
         <city-header></city-header>
         <city-search></city-search>
-        <city-list></city-list>
+        <city-list :cities="cities" :hotCities="hotCities"></city-list>
+        <city-alphabet :cities="cities"></city-alphabet>
     </div>
 </template>
 
@@ -10,12 +11,40 @@
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/List'
+import CityAlphabet from './components/Alphabet'
+// 安装 axios: npm install axios --save
+import axios from 'axios'
 export default {
   name: 'City',
   components: {
     CityHeader,
     CitySearch,
-    CityList
+    CityList,
+    CityAlphabet
+  },
+  data () {
+    return {
+      cities: {},
+      hotCities: []
+    }
+  },
+  methods: {
+    getCityInfo () {
+      axios.get('/api/city.json')
+        .then(this.handleGetCityInfoSucc)
+    },
+    handleGetCityInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        console.log(data)
+        this.cities = data.cities
+        this.hotCities = data.hotCities
+      }
+    }
+  },
+  mounted () {
+    this.getCityInfo()
   }
 }
 </script>
