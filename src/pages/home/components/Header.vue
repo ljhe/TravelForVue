@@ -8,7 +8,7 @@
         </div>
         <router-link to="/city">
             <div class="header-right">
-                北京<span class="iconfont arrow-icon">&#xe633;</span>
+                {{this.$store.state.city}}<span class="iconfont arrow-icon">&#xe633;</span>
             </div>
         </router-link>
     </div>
@@ -16,10 +16,7 @@
 
 <script>
 export default {
-  name: 'Header',
-  props: {
-    city: String
-  }
+  name: 'Header'
 }
 </script>
 
