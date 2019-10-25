@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     handleScroll () {
+      console.log('scroll')
       /* 获取当前滚动到顶部的距离 */
       const top = document.documentElement.scrollTop
       if (top > 60) {
@@ -45,12 +46,12 @@ export default {
       }
     }
   },
-  mounted () {
-    /* 监听滚动事件 */
+  created () {
+    /* 监听滚动事件 对全局组件进行绑定 */
     window.addEventListener('scroll', this.handleScroll)
   },
-  unmounted () {
-    /* 监听滚动事件 */
+  destroyed () {
+    /* 移除滚动事件 对全局组件进行解绑 否则在其他页面也会对事件的滚动进行监听 */
     window.removeEventListener('scroll', this.handleScroll)
   }
 }

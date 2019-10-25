@@ -20,5 +20,9 @@ export default new Router({
     path: '/datail/:id',
     name: 'Detail',
     component: Detail
-  }]
+  }],
+  /* 每次做路由切换的时候 让 x 轴初始位置为 0 y 轴初始位置为 0 */
+  scrollBehavior (to, from, savedPosition) {
+    return {x: 0, y: 0}
+  }
 })
