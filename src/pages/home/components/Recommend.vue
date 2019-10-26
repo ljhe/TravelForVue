@@ -1,15 +1,22 @@
 <template>
   <div>
       <div class="title">热门推荐</div>
-      <ul v-for="item of list" :key="item.id">
-          <li class="item border-bottom">
+      <ul>
+          <!--router-link 默认渲染为 a 标签 后面加上 tag 可以自定义要渲染成的元素 to 是要跳转到的页面-->
+          <router-link
+                  tag="li"
+                  class="item border-bottom"
+                  v-for="item of list"
+                  :key="item.id"
+                  :to="'/datail/' + item.id"
+          >
             <img class="item-img" :src="item.imgUrl"/>
           <div class="item-info">
             <p class="item-title">{{item.title}}</p>
             <p class="item-desc">{{item.desc}}</p>
             <button class="item-button">查看详情</button>
           </div>
-          </li>
+          </router-link>
       </ul>
   </div>
 </template>

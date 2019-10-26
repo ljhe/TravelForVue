@@ -6,6 +6,8 @@ import router from './router'
 //  解决某些机型的默认浏览器点击300毫秒延迟问题
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+//  引入 vuex
+import store from './store/index'
 //  统一不同手机的默认浏览器的样式
 import 'styles/css/reset.css'
 //  解决1像素边框问题
@@ -24,6 +26,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
