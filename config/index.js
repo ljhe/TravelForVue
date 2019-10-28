@@ -60,6 +60,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    // npm run build 打包上线默认放在后端的根目录下 修改该参数 可以指定打包要放到某个文件夹下
+    // 如 assetsPublicPath: '/project' 是要把打包的文件放在后端的 project 目录下
     assetsPublicPath: '/',
 
     /**

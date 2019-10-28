@@ -6,6 +6,8 @@ import router from './router'
 //  解决某些机型的默认浏览器点击300毫秒延迟问题
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+/* npm install babel-polyfill --save 某些低版本的安卓手机不支持 es6 新特性的话 会默认安装 */
+import 'babel-polyfill'
 //  引入 vuex
 import store from './store/index'
 //  统一不同手机的默认浏览器的样式

@@ -10,6 +10,14 @@ export default new Router({
   routes: [{
     path: '/',
     name: 'Home',
+    /*
+     * 原来的 import Home from '@/pages/home/Home'
+     * 下面 component: Home
+     * 打包之后 会把所有的 js 压缩到 dist/static/js/app.js 文件里面
+     * 引入这个 js 的时候 所有的页面组件一次全部加载完成
+     * 修改为 component: () => import('@/pages/home/Home') 这样的形式可以改为异步加载组件 按需加载
+     * 只有 app.js 文件比较大的时候(至少超过1MB) 才有必要使用这种方法
+     */
     component: Home
   }, {
     path: '/city',

@@ -5,7 +5,7 @@
                 to="/"
                 class="header-abs"
                 v-show="showAbs">
-            <div class="iconfont header-abs-back">&#xe624;</div>
+            <div class="iconfont header-abs-back">&#xeb99;</div>
         </router-link>
         <div
                 class="header-fixed"
